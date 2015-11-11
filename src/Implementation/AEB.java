@@ -6,9 +6,11 @@ import FrameWork.busInterface.DriverInput_Out;
 import FrameWork.busInterface.Public_In;
 import Interfaces.IRadarBase;
 import Interfaces.IWorldObject;
+import Test.Container;
+import Test.DriverInput;
 public class AEB {
 	
-	public AEB(IRadarBase radar,Public_In bus,DriverInput_Out control, long refreshInterval)
+	public AEB(IRadarBase radar,Container bus,DriverInput control, long refreshInterval)
 	{
 		this.refreshInterval=refreshInterval;
 		task = new Refresher(radar,bus,control);
@@ -34,9 +36,9 @@ public class AEB {
 class Refresher extends TimerTask
 {
 	IRadarBase radar;
-	Public_In bus;
-	DriverInput_Out control;
-	public Refresher(IRadarBase radar,Public_In bus, DriverInput_Out control)
+	Container bus;
+	DriverInput control;
+	public Refresher(IRadarBase radar,Container bus, DriverInput control)
 	{
 		this.bus=bus;
 		this.radar=radar;
@@ -49,7 +51,11 @@ class Refresher extends TimerTask
 		double speed=Math.sqrt(Math.pow(bus.getMotionVectorXWithLengthAsSpeedInKm(), 2)+Math.pow(bus.getMotionVectorYWithLengthAsSpeedInKm(), 2));
 		if(EmergencyBreak(radar.RelativeSpeedInKPH(o),radar.DistanceFromObject(o),speed))
 		{
-			control.setBrakePedalPushPercent(100);
+			//control.pushBrakePedal(100);
+			//for test
+			bus.setBrakePedalPushPercent(100);
+			bus.setMotionVectorXWithLengthAsSpeedInKm(bus.getMotionVectorXWithLengthAsSpeedInKm()-1);
+			
 		}
 			
 		

@@ -24,6 +24,10 @@ public class DriverInput {
 		out.setGasPedalPushPercent(0.0);
 		out.setBrakePedalPushPercent(0.0);
 	}
+	
+	//For test
+	public DriverInput() {
+	}
 
 	public void pushEngineToggleButton() {
 		boolean currentState = in.getEngineToggleButtonState();

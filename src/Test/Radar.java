@@ -23,7 +23,7 @@ public class Radar implements IRadarBase {
 	@Override
 	public double DistanceFromObject(IWorldObject object) {
 		// TODO Auto-generated method stub
-		return 10;
+		return 2;
 	}
 
 }

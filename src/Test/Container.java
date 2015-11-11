@@ -140,7 +140,7 @@ public class Container implements Engine_Out, DriverInput_Out, Gearbox_Out, Whee
 	}
 
 	public double getMotionVectorXWithLengthAsSpeedInKm() {
-		return 50;
+		return MotionVectorXWithLengthAsSpeedInKm;
 	}
 
 	public void setMotionVectorXWithLengthAsSpeedInKm(double motionVectorXWithLengthAsSpeedInKm) {
@@ -148,7 +148,7 @@ public class Container implements Engine_Out, DriverInput_Out, Gearbox_Out, Whee
 	}
 
 	public double getMotionVectorYWithLengthAsSpeedInKm() {
-		return 0;
+		return MotionVectorYWithLengthAsSpeedInKm;
 	}
 
 	public void setMotionVectorYWithLengthAsSpeedInKm(double motionVectorYWithLengthAsSpeedInKm) {
